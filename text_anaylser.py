@@ -46,5 +46,4 @@ def pun_count(text):
 
     print(f'Punctuation Count: {total_puns}')
 
-
 get_text()
