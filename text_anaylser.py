@@ -5,16 +5,18 @@ text_anaylzer = Tk()
 text_anaylzer.title("Text Analyzer")
 
 #Setting the window size
-text_anaylzer.geometry("300x150")
+text_anaylzer.geometry("600x150")
 
 #Declaring string variable for provide text
 input_text = StringVar()
 
 #Creating entry label
 entry_lb = Label(text_anaylzer, text= "Please provide text:")
+word_label = Label(text_anaylzer, text="Word Count: ")
 
 #Creating Entry
-entry = Entry(text_anaylzer, textvariable=input_text, font=('calibre', 10, 'normal'))
+entry = Entry(text_anaylzer, textvariable=input_text, width=50, font=('calibre', 10, 'normal'))
+word_entry = Entry(text_anaylzer)
 
 # Function to get text and determine word, character, vowel and punctuation count.
 def get_text():
@@ -29,7 +31,9 @@ def word_count(text):
     """Count the total amount of words in provide text."""
     words = text.split()
     total_words = len(words)
-    print(f'Word Count: {total_words}')
+    
+    #Display word count
+    word_entry.insert(0,f"{total_words}")
     
 def char_count(text):
     """Counts the total amount of characters in a provide text. """
@@ -65,11 +69,14 @@ def pun_count(text):
 #Creating Anaylzer Button
 anaylze_button = Button(text_anaylzer, text="Anaylze", command= get_text)
 
-
 #Placing label and entry 
-entry.grid(row=1, column=1)
-entry_lb.grid(row=1, column=0)
-anaylze_button.grid(row=2, column=1)
+entry_lb.pack()
+entry.pack()
+anaylze_button.pack()
+word_label.pack()
+word_entry.pack()
+
+#Padding
 
 #Loop
 text_anaylzer.mainloop()
