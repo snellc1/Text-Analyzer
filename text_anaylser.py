@@ -1,4 +1,20 @@
-from display_text import *
+from tkinter import * 
+text_anaylzer = Tk()
+
+#App Title
+text_anaylzer.title("Text Analyzer")
+
+#Setting the window size
+text_anaylzer.geometry("300x150")
+
+#Declaring string variable for provide text
+input_text = StringVar()
+
+#Creating entry label
+entry_lb = Label(text_anaylzer, text= "Please provide text:")
+
+#Creating Entry
+entry = Entry(text_anaylzer, textvariable=input_text, font=('calibre', 10, 'normal'))
 
 # Function to get text and determine word, character, vowel and punctuation count.
 def get_text():
@@ -46,5 +62,14 @@ def pun_count(text):
 
     print(f'Punctuation Count: {total_puns}')
 
-if __name__ == '__main__':
-    get_text()
+#Creating Anaylzer Button
+anaylze_button = Button(text_anaylzer, text="Anaylze", command= get_text)
+
+
+#Placing label and entry 
+entry.grid(row=1, column=1)
+entry_lb.grid(row=1, column=0)
+anaylze_button.grid(row=2, column=1)
+
+#Loop
+text_anaylzer.mainloop()
