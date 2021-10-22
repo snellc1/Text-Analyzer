@@ -1,7 +1,9 @@
+from display_text import *
+
 # Function to get text and determine word, character, vowel and punctuation count.
 def get_text():
     """Get text or paragraph from users. """
-    text = input("Please begin typing: ")
+    text = input_text.get()
     word_count(text)
     char_count(text)
     vowel_count(text)
@@ -43,4 +45,6 @@ def pun_count(text):
             total_puns += 1
 
     print(f'Punctuation Count: {total_puns}')
+
+
 get_text()
