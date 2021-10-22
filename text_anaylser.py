@@ -15,12 +15,14 @@ entry_lb = Label(text_anaylzer, text= "Please provide text")
 word_label = Label(text_anaylzer, text="Word Count")
 char_label = Label(text_anaylzer, text="Character Count")
 vowel_label = Label(text_anaylzer, text="Vowel Count")
+pun_label = Label(text_anaylzer, text="Punctuation Count")
 
 #Creating entries
 entry = Entry(text_anaylzer, textvariable=input_text, width=50, font=('calibre', 10, 'normal'))
 word_entry = Entry(text_anaylzer)
 char_entry = Entry(text_anaylzer)
 vowel_entry = Entry(text_anaylzer)
+pun_entry = Entry(text_anaylzer)
 
 # Function to get text and determine word, character, vowel and punctuation count.
 def get_text():
@@ -70,24 +72,25 @@ def pun_count(text):
     for p in text:
         if p in puns:
             total_puns += 1
+    
+    pun_entry.insert(0, f"{total_puns}")
 
-    print(f'Punctuation Count: {total_puns}')
-
+   
 #Creating Anaylzer Button
 anaylze_button = Button(text_anaylzer, text="Anaylze", command= get_text)
 
 #Placing labels and entries 
-entry_lb.pack()
-entry.pack()
-anaylze_button.pack()
-word_label.pack()
-word_entry.pack()
-char_label.pack()
-char_entry.pack()
-vowel_label.pack()
-vowel_entry.pack()
-
-#Padding
+entry_lb.pack(pady=5)
+entry.pack(pady=5)
+anaylze_button.pack(pady=5)
+word_label.pack(pady=5)
+word_entry.pack(pady=5)
+char_label.pack(pady=5)
+char_entry.pack(pady=5)
+vowel_label.pack(pady=5)
+vowel_entry.pack(pady=5)
+pun_label.pack(pady=5)
+pun_entry.pack(pady=5)
 
 #Loop
 text_anaylzer.mainloop()
